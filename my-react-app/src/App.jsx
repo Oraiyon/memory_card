@@ -89,13 +89,13 @@ function App() {
 
   return (
     <>
+      <h1>Pokemon Memory Game</h1>
       <header>
-        <h1>Pokemon Memory Game</h1>
+        <h2>Get points by clicking on a pokemon, but don't repeat a pick!</h2>
         <Scoreboard 
-          currentScore = {currentScore} 
-          bestScore = {bestScore}/>
+            currentScore = {currentScore} 
+            bestScore = {bestScore}/>
       </header>
-      <h2>Get points by clicking on a pokemon, but don't repeat a pick!</h2>
       <Cards cards = {cards}/>
     </>
   );
