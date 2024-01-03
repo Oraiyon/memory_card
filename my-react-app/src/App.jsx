@@ -6,84 +6,26 @@ import Cards from './Cards.jsx';
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [cards, setCards] = useState([])
+  const [cards, setCards] = useState([]);
   
+  const pokemons = ["charizard", "pikachu", "mew", "rayquaza", 
+                    "snorlax", "lugia",  "mewtwo", "bulbasaur",
+                    "gengar", "magikarp", "groudon", "zapdos",
+                    "kyogre", "squirtle", "charmander", "geodude"];
+
+  // React.StrictMode displays fetched cards twice
+  // Only in dev mode
   useEffect(
-    // React.StrictMode displays fetched cards twice
-    // Only in dev mode
     () => {
-      const controller = new AbortController();
-
-      fetch("https://pokeapi.co/api/v2/pokemon/charizard/")
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setCards(c => ([...c, data]))
-        });
-
-      fetch("https://pokeapi.co/api/v2/pokemon/pikachu/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/mew/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/rayquaza/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/snorlax/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/lugia/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/mewtwo/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/gengar/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/magikarp/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/groudon/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/zapdos/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/kyogre/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-      
-      fetch("https://pokeapi.co/api/v2/pokemon/squirtle/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/charmander/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      fetch("https://pokeapi.co/api/v2/pokemon/geodude/")
-        .then(res => res.json())
-        .then(data => setCards(c => ([...c, data])));
-
-      return () => {
-        controller.abort();
-      }
+      pokemons.map(pokemon => {
+        const controller = new AbortController();
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+          .then(res => res.json())
+          .then(data => setCards(c => ([...c, data])))
+        return () => {
+          controller.abort();
+        }
+      });
     },[]
   )
 
