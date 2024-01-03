@@ -64,7 +64,23 @@ function App() {
       fetch("https://pokeapi.co/api/v2/pokemon/zapdos/")
         .then(res => res.json())
         .then(data => setCards(c => ([...c, data])));
+
+      fetch("https://pokeapi.co/api/v2/pokemon/kyogre/")
+        .then(res => res.json())
+        .then(data => setCards(c => ([...c, data])));
       
+      fetch("https://pokeapi.co/api/v2/pokemon/squirtle/")
+        .then(res => res.json())
+        .then(data => setCards(c => ([...c, data])));
+
+      fetch("https://pokeapi.co/api/v2/pokemon/charmander/")
+        .then(res => res.json())
+        .then(data => setCards(c => ([...c, data])));
+
+      fetch("https://pokeapi.co/api/v2/pokemon/geodude/")
+        .then(res => res.json())
+        .then(data => setCards(c => ([...c, data])));
+
       return () => {
         controller.abort();
       }
