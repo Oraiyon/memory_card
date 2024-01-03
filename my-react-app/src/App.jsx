@@ -26,7 +26,9 @@ function App() {
         pokemons={pokemons} 
         setPokemons={setPokemons}
         currentScore={currentScore}
-        setCurrentScore={setCurrentScore}/>
+        setCurrentScore={setCurrentScore}
+        bestScore={bestScore}
+        setBestScore={setBestScore}/>
     </>
   );
 }

@@ -3,7 +3,8 @@ import { useState, useEffect} from "react";
 
 const Cards = (props) => {
     const [cards, setCards] = useState([]);
-    
+    const [selected, setSelected] = useState([]);
+
     useEffect(() => {
         props.pokemons.map(pokemon => {
             const controller = new AbortController();
@@ -28,10 +29,16 @@ const Cards = (props) => {
         return array;
     };
 
-    const handleClick = () => {
+    const handleClick = (id) => {
         const shuffled = shuffle(cards);
         setCards(c => (shuffled));
-        props.setCurrentScore(c => (c + 1))
+        if(!selected.includes(id)) {
+            setSelected(s => ([...s, id]))
+            props.setCurrentScore(c => (c + 1))
+        } else {
+            setSelected(s => ([]))
+            props.setCurrentScore(c => (0))
+        }
     }
 
     const capitalizeName = (name) => {
@@ -46,8 +53,8 @@ const Cards = (props) => {
         <div className="cards">
             {cards.map(card => 
                 <button className="card" 
-                key={card.id + "-" + Math.random(10)}
-                onClick={handleClick}>
+                key={card.id}
+                onClick={() => handleClick(card.id)}>
                     <img src={card.sprites.front_default} 
                          alt="picture of pokemon" >
                     </img>
