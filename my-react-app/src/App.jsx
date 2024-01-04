@@ -13,7 +13,7 @@ function App() {
     <>
       <h1>Pokemon Memory Game</h1>
       <header>
-        <h2>Get points by clicking on a pokemon, but don't repeat a pick!</h2>
+        <h2>Click on all pokemon, but don't repeat a pick!</h2>
         <Scoreboard 
             currentScore={currentScore}
             setCurrentScore={setCurrentScore}
