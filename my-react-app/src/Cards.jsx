@@ -33,16 +33,23 @@ const Cards = (props) => {
         return array;
     };
 
+    const handleScore = (id) => {
+        if(!selected.includes(id)) {
+            setSelected(s => ([...s, id]));
+            props.setCurrentScore(c => (c + 1));
+            if (props.currentScore === props.bestScore) {
+                props.setBestScore(b => (b + 1));
+            }
+        } else {
+            setSelected(s => ([]));
+            props.setCurrentScore(c => (0));
+        }
+    }
+
     const handleClick = (id) => {
         const shuffled = shuffle(cards);
         setCards(c => (shuffled));
-        if(!selected.includes(id)) {
-            setSelected(s => ([...s, id]))
-            props.setCurrentScore(c => (c + 1))
-        } else {
-            setSelected(s => ([]))
-            props.setCurrentScore(c => (0))
-        }
+        handleScore(id);
     }
 
     const capitalizeName = (name) => {
