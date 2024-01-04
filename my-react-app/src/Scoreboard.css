@@ -3,3 +3,13 @@
     gap: 16px;
     align-items: center;
 }
+
+.scoreboard div {
+    font-size: 1.25em;
+}
+
+@media (max-width: 560px) {
+    .scoreboard div {
+        font-size: 1em;
+    }
+}
