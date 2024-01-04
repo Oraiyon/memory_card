@@ -59,8 +59,7 @@ const Cards = (props) => {
         return firstLetter.concat(rest);
     }
 
-    // React.StrictMode displays fetched cards twice
-    // Only in dev mode
+    // React.StrictMode displays fetched cards twice in dev mode
     return (
         <div className="cards">
             {cards.map(card => 
@@ -70,7 +69,7 @@ const Cards = (props) => {
                 key={card.id}
                 onClick={() => handleClick(card.id)}>
                     <img src={card.sprites.front_default} 
-                         alt="picture of pokemon" >
+                         alt={card.name}>
                     </img>
                     <p>{capitalizeName(card.name)}</p>
                 </button>    
