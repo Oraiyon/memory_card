@@ -34,15 +34,6 @@
     transform: scale(1.15);
 }
 
-.card:disabled {
-    box-shadow: none;
-    transform: none;
-}
-
-.card:disabled img {
-    transform: none;
-}
-
 #fire:hover {
     background-color: #EE8130;
 }
@@ -81,6 +72,19 @@
 
 #rock:hover {
     background-color: #B6A136;
+}
+
+.card:disabled {
+    box-shadow: none;
+    transform: none;
+}
+
+.card:disabled img {
+    transform: none;
+}
+
+.card:disabled:hover {
+    background-color: white !important;
 }
 
 @media (max-width: 425px) {
