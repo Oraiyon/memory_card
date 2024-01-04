@@ -3,7 +3,6 @@ import { useState, useEffect} from "react";
 
 const Cards = (props) => {
     const [cards, setCards] = useState([]);
-    const [selected, setSelected] = useState([]);
     const pokemons = ["charizard", "pikachu", "mew","rayquaza",
                       "snorlax", "lugia",  "mewtwo", "bulbasaur",
                       "gengar", "magikarp", "groudon", "zapdos",
@@ -34,14 +33,14 @@ const Cards = (props) => {
     };
 
     const handleScore = (id) => {
-        if(!selected.includes(id)) {
-            setSelected(s => ([...s, id]));
+        if(!props.selected.includes(id)) {
+            props.setSelected(s => ([...s, id]));
             props.setCurrentScore(c => (c + 1));
             if (props.currentScore === props.bestScore) {
                 props.setBestScore(b => (b + 1));
             }
         } else {
-            setSelected(s => ([]));
+            props.setSelected(s => ([]));
             props.setCurrentScore(c => (0));
         }
     }

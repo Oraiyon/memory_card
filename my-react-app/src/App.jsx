@@ -7,7 +7,8 @@ import WinnerModal from './WinnerModal.jsx';
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  
+  const [selected, setSelected] = useState([]);
+
   return (
     <>
       <h1>Pokemon Memory Game</h1>
@@ -24,8 +25,14 @@ function App() {
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
           bestScore={bestScore}
-          setBestScore={setBestScore}/>
-        <WinnerModal currentScore={currentScore}/>
+          setBestScore={setBestScore}
+          selected={selected}
+          setSelected={setSelected}/>
+        <WinnerModal 
+          currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
+          setBestScore={setBestScore}
+          setSelected={setSelected}/>
       </div>
     </>
   );

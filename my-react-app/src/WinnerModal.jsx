@@ -1,16 +1,26 @@
 import './WinnerModal.css'
 
 const WinnerModal = (props) => {
-    if (props.currentScore === 3) {
-        const cards = document.querySelectorAll(".card");
+    const cards = document.querySelectorAll(".card");
+
+    const handleReset = () => {
         cards.forEach(card => {
-            card.disabled = true
+            card.disabled = false;
+        });
+        props.setCurrentScore(c => (0));
+        props.setBestScore(b => (0));
+        props.setSelected(s => ([]));
+    }
+
+    if (props.currentScore === 16) {
+        cards.forEach(card => {
+            card.disabled = true;
         });
 
         return (
             <div className="winnerModal">
                 <p>YOU WIN!</p>
-                <button>Reset</button>
+                <button onClick={handleReset}>Reset</button>
             </div>
         );
     }
