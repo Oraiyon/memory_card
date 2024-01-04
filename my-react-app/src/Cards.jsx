@@ -14,8 +14,10 @@ const Cards = (props) => {
 
             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
                 .then(res => res.json())
-                .then(data => setCards(c => ([...c, data])))
-
+                .then(data => {
+                    // console.log(data)
+                    setCards(c => ([...c, data]))
+                })
             return () => {
             controller.abort();
             }
@@ -62,13 +64,15 @@ const Cards = (props) => {
     return (
         <div className="cards">
             {cards.map(card => 
-                <button className="card" 
+                <button 
+                className="card"
+                id={card.types[0].type.name} 
                 key={card.id}
                 onClick={() => handleClick(card.id)}>
                     <img src={card.sprites.front_default} 
                          alt="picture of pokemon" >
                     </img>
-                    <div>{capitalizeName(card.name)}</div>
+                    <p>{capitalizeName(card.name)}</p>
                 </button>    
             )}
         </div>

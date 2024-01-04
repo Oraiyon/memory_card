@@ -22,7 +22,7 @@
     margin-top: auto;
 }
 
-.card > div {
+.card > p {
     font-size: 1.25rem;
 }
 
@@ -35,12 +35,6 @@
     transform: scale(1.15);
 }
 
-@media (max-width: 425px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .card:disabled {
     box-shadow: none;
     transform: none;
@@ -48,4 +42,50 @@
 
 .card:disabled img {
     transform: none;
+}
+
+#fire:hover {
+    background-color: #EE8130;
+}
+
+#water:hover {
+    background-color: #6390F0;
+}
+
+#dragon:hover {
+    background-color:#6F35FC;
+}
+
+#psychic:hover {
+    background-color: #F95587;
+}
+
+#normal:hover {
+    background-color: #A8A77A;
+}
+
+#grass:hover {
+    background-color: #7AC74C;
+}
+
+#ghost:hover {
+    background-color: #735797;
+}
+
+#ground:hover {
+    background-color: #E2BF65;
+}
+
+#electric:hover {
+    background-color: #F7D02C;
+}
+
+#rock:hover {
+    background-color: #B6A136;
+}
+
+@media (max-width: 425px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
