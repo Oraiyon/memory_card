@@ -6,12 +6,6 @@ import Cards from './Cards.jsx';
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [pokemons, setPokemons] = useState(
-    ["charizard", "pikachu", "mew","rayquaza",
-    "snorlax", "lugia",  "mewtwo", "bulbasaur",
-    "gengar", "magikarp", "groudon", "zapdos",
-    "kyogre", "squirtle", "charmander", "geodude"]
-  );
   
   return (
     <>
@@ -22,9 +16,7 @@ function App() {
             currentScore={currentScore} 
             bestScore={bestScore}/>
       </header>
-      <Cards 
-        pokemons={pokemons} 
-        setPokemons={setPokemons}
+      <Cards
         currentScore={currentScore}
         setCurrentScore={setCurrentScore}
         bestScore={bestScore}

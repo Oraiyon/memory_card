@@ -4,9 +4,13 @@ import { useState, useEffect} from "react";
 const Cards = (props) => {
     const [cards, setCards] = useState([]);
     const [selected, setSelected] = useState([]);
+    const pokemons = ["charizard", "pikachu", "mew","rayquaza",
+                      "snorlax", "lugia",  "mewtwo", "bulbasaur",
+                      "gengar", "magikarp", "groudon", "zapdos",
+                      "kyogre", "squirtle", "charmander", "geodude"];
 
     useEffect(() => {
-        props.pokemons.map(pokemon => {
+        pokemons.map(pokemon => {
             const controller = new AbortController();
 
             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
