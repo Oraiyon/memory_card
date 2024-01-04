@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Scoreboard from './Scoreboard.jsx'
 import Cards from './Cards.jsx';
+import WinnerModal from './WinnerModal.jsx';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -13,14 +14,19 @@ function App() {
       <header>
         <h2>Get points by clicking on a pokemon, but don't repeat a pick!</h2>
         <Scoreboard 
-            currentScore={currentScore} 
-            bestScore={bestScore}/>
+            currentScore={currentScore}
+            setCurrentScore={setCurrentScore}
+            bestScore={bestScore}
+            setBestScore={setBestScore}/>
       </header>
-      <Cards
-        currentScore={currentScore}
-        setCurrentScore={setCurrentScore}
-        bestScore={bestScore}
-        setBestScore={setBestScore}/>
+      <div className='container'>
+        <Cards
+          currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
+          bestScore={bestScore}
+          setBestScore={setBestScore}/>
+        <WinnerModal currentScore={currentScore}/>
+      </div>
     </>
   );
 }
