@@ -12,7 +12,7 @@ const WinnerModal = (props) => {
         props.setSelected(s => ([]));
     }
 
-    if (props.currentScore === 2) {
+    if (props.currentScore === 16) {
         cards.forEach(card => {
             card.disabled = true;
         });
