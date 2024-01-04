@@ -20,4 +20,10 @@
 .winnerModal button {
     padding: 4px;
     font-size: 1.2rem;
+    border-radius: 4px;
+}
+
+.winnerModal button:hover {
+    background-color: rgb(31, 31, 31);
+    color: white;
 }

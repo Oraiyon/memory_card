@@ -20,7 +20,7 @@ const WinnerModal = (props) => {
         return (
             <div className="winnerModal">
                 <p>YOU WIN!</p>
-                <button onClick={handleReset}>Reset</button>
+                <button onClick={handleReset}>Play Again?</button>
             </div>
         );
     }
